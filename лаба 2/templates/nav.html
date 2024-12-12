@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{Title}}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script src="https://kit.fontawesome.com/7dacbade9b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-dark bg-dark" style="width: 100%;">
+        <div class="container-fluid">
+
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link {% if active == 'My dictionary'%}active{%endif%}" aria-current="page" href="{% url 'home' %}">My dictionary</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if active == 'Words list'%}active{%endif%}" href="{% url 'words_list' %}">Words list</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if active == 'Add word'%}active{%endif%}" href="{% url 'add_word' %}">Add word</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+      {%block content%}
+      {%endblock%}
+</body>
+</html>

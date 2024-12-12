@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-center" style="margin-bottom: 50px">{{title}}</h2>
+                {% if err %}
+                <div class="alert alert-danger text-center" role="alert"> <h2> {{err}}</h2></div> 
+                {% endif %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="username" placeholder="Пользователь" class="form-control mb-2">
+                    <input type="password" name="password" placeholder="Пароль" class="form-control mb-2">
+                    <button type="submit" class="btn btn-primary" style="margin: 0 50%;">{{btn}}</button>
+                    
+                    {% if title == 'Login' %}<a href="{% url 'currency:register'%}">Register</a> 
+                    {% else %}<a href="{% url 'currency:login'%}">Login</a>
+                    {%endif%}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

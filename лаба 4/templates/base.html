@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageTitle}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #121212; /* Темный фон */
+            color: #e0e0e0; /* Светлый текст для контраста */
+        }
+        textarea {
+            resize: none;
+        }
+        .form-wrapper > div {
+            display: inline-block;
+            margin: 10px 10px;
+        }
+
+        .form-wrapper > div > input {
+            max-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    {%if error %}
+        <script>alert("{{error}}")</script>
+    {%endif%}
+    {%if success %}
+        <script>alert("{{success}}")</script>
+    {%endif%}
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

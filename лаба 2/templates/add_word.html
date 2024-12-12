@@ -1,0 +1,28 @@
+{% extends "nav.html" %}
+{% block content %}
+    {% if error %}
+    <div class="alert alert-danger text-center" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    {% if success %}
+    <div class="alert alert-success text-center">
+        {{ success }}
+    </div>
+    {% endif%}
+    <div class="container text-center">
+        <h1>Add Word</h1>
+        <form method="POST" class="text-center">
+            {% csrf_token %}
+            <table class="table table-bordered row" style="padding: 0 39%;">
+                {% for field in form %}
+                    <tr>
+                        <td>{{field.label}}</td>
+                        <td>{{ field }}</td>
+                    </tr>
+                {% endfor%}
+            </table>
+            <button type="submit" class="btn btn-primary text-center">Add Word</button>
+        </form>
+    </div>
+{%endblock%}
